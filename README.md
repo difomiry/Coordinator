@@ -51,7 +51,7 @@ final class AppCoordinator: Coordinator {
 
 extension AppCoordinator: Coordinatable {
 
-  func start(with _: Void, completion: @escaping CoordinatorCompletion<Void>) {
+  func start(with _: Void, completion: @escaping CoordinatorCompletion<Void>?) {
     if authService.isAuthorized {
       startMain()
     } else {
@@ -68,7 +68,7 @@ extension AppCoordinator: Coordinatable {
     router.set(tabBarController, animated: true)
 
     // Start coordination of the main screen.
-    coordinate(to: factory.makeMainCoordinator(router: tabBarController)) { _ in }
+    coordinate(to: factory.makeMainCoordinator(router: tabBarController))
   }
 
   private func startAuth() {
