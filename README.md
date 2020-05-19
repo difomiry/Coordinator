@@ -17,12 +17,12 @@ protocol CoordinatorFactoring {
   func makeBarCoordinator(router: Router) -> AnyCoordinatable<BarCoordinatorInput, BarCoordinatorOutput>
 }
 
-final class CoordiatorFactory {
+final class CoordinatorFactory {
   // Fields with services here.
   // Initializer for services is here too.
 }
 
-extension CoordiatorFactory: CoordinatorFactoring {
+extension CoordinatorFactory: CoordinatorFactoring {
 
   func makeAppCoordinator(router: Router) -> AnyCoordinatable<Void, Void> {
     .init(AppCoordinator(router: Router, factory: self))
