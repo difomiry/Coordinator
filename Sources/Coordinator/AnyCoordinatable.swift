@@ -2,7 +2,7 @@
 public class AnyCoordinatable<InputType, OutputType> {
 
   /// A coordination handler of base coordinatable. It keeps reference to base coordinatable.
-  private let coordination: (InputType, @escaping Completion<OutputType>) -> Void
+  private let coordination: (InputType, @escaping CoordinatorCompletion<OutputType>) -> Void
 
   /// Initializes an any coordinatable.
   /// - Parameter coordinatable: A coordinatable on which this any coordinatable is based. 
@@ -18,7 +18,7 @@ extension AnyCoordinatable: Coordinatable {
   /// - Parameters:
   ///   - input: A coordination input.
   ///   - completion: The block to execute after coordination finishes.
-  public func start(with input: InputType, completion: @escaping Completion<OutputType>) {
+  public func start(with input: InputType, completion: @escaping CoordinatorCompletion<OutputType>) {
     coordination(input, completion)
   }
 

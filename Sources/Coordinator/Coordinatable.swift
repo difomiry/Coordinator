@@ -12,7 +12,7 @@ public protocol Coordinatable: class {
   /// - Parameters:
   ///   - input: The coordination input.
   ///   - completion: The block to execute after the coordination finishes.
-  func start(with input: InputType, completion: @escaping Completion<OutputType>)
+  func start(with input: InputType, completion: @escaping CoordinatorCompletion<OutputType>)
 
 }
 
@@ -20,7 +20,7 @@ extension Coordinatable where InputType == Void {
 
   /// Starts coordination.
   /// - Parameter completion: The block to execute after the coordination finishes.
-  public func start(completion: @escaping Completion<OutputType>) {
+  public func start(completion: @escaping CoordinatorCompletion<OutputType>) {
     start(with: (), completion: completion)
   }
 

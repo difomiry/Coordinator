@@ -51,7 +51,7 @@ final class AppCoordinator: Coordinator {
 
 extension AppCoordinator: Coordinatable {
 
-  func start(with _: Void, completion: @escaping Completion<Void>) {
+  func start(with _: Void, completion: @escaping CoordinatorCompletion<Void>) {
     if authService.isAuthorized {
       startMain()
     } else {
