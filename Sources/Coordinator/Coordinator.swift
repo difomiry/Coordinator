@@ -4,6 +4,9 @@ open class Coordinator {
   /// References to child coordinatables.
   private var coordinatables = [ObjectIdentifier: AnyObject]()
 
+  /// An empty initializer.
+  public init() {}
+
 }
 
 extension Coordinator: Coordinating {
