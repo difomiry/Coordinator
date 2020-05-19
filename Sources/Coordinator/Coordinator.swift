@@ -13,7 +13,7 @@ extension Coordinator: Coordinating {
   ///   - coordinatable: The coordinatable.
   ///   - input: The coordination input.
   ///   - completion: The block to execute after the coordination finishes.
-  public func coordinate<C: Coordinatable>(to coordinatable: C, with input: C.InputType, completion: @escaping CoordinatorCompletion<C.OutputType>) {
+  public func coordinate<C: Coordinatable>(to coordinatable: C, with input: C.InputType, completion: CoordinatorCompletion<C.OutputType>?) {
 
     // Make a key for the coordinatable.
     let key = ObjectIdentifier(coordinatable)
@@ -28,7 +28,7 @@ extension Coordinator: Coordinating {
       self.coordinatables[key] = nil
 
       // Call a completion block with result.
-      completion(result)
+      completion?(result)
     }
   }
 
