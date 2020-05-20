@@ -1,6 +1,6 @@
 extension Result where Success == Void {
 
-  /// A  success.
+  /// A success.
   public static var success: Self {
     .success(())
   }
